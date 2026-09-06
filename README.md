@@ -66,7 +66,8 @@ Stripe Engineer     → Stripe integration + payment plumbing
 Auth Engineer       → authentication/session/identity boundary
 API Engineer        → reusable external/internal API integration
 MCP Engineer        → MCP server/tool integration
-Workflow Engineer   → compose existing functions into pipelines
+Pipeline Engineer   → own pipeline execution, handoffs, retries, pauses, and state
+Workflow Engineer   → define user/business workflows using existing functions and pipelines
 UI Engineer         → connect screens/buttons to workflows
 Database Engineer   → schema/migrations/data boundary
 ```
