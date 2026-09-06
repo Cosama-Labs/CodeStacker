@@ -8,7 +8,11 @@
 
 **Stop asking one AI coding session to be your entire engineering team. Assemble the team instead.**
 
-Code Stacker is an open architecture standard for building production software with AI coding agents. It breaks an application into small, contract-bound functions and treats each fresh coding session like one focused engineer on a software team.
+Code Stacker is **not a framework** and it is not a requirement to become a software engineer before you can vibe code.
+
+It is a practical **development approach** for founders, pure vibe coders, product people, and non-software engineers who can explain what the product should do but should not have to micromanage every implementation detail.
+
+The idea is to structure the codebase so current AI coding agents are asked to do the kind of work they are best at: one bounded capability at a time, with a clear handoff before the next fresh session starts.
 
 Each function gets:
 
@@ -23,6 +27,28 @@ Each function gets:
 The pipeline acts as the shared team integration spec.
 
 > **Build the function. Prove it works. Document the handoff. Stack it. Move on.**
+
+---
+
+## The five problems this approach is trying to reduce
+
+Code Stacker came from a simple observation: **AI coding agents often know how to write the code, but still lose the application.**
+
+The approach is designed around five recurring failure modes.
+
+| Pain point | What it looks like | Code Stacker response |
+|---|---|---|
+| **1. Context drift** | A long coding session forgets earlier decisions, changes direction, or stops honoring the original requirement. | **One function, one fresh session.** The function contract persists in `FUNCTION.md`; the implementation map persists in `DESIGN.md`. |
+| **2. Fake-green completion** | The agent writes a test or script that passes, then declares the feature done even though the real user path never executes that code. | **One canonical entry point.** Tests, workers, and production must call the same function implementation. |
+| **3. Scope wandering** | The coder notices unrelated code, refactors another feature, changes architecture, or breaks working areas while “helping.” | **Folder-bounded ownership.** One session owns one function boundary and does not modify sibling functions. |
+| **4. The founder becomes the engineer** | A non-engineer is forced to specify classes, methods, queues, imports, and low-level implementation just to keep the AI on track. | **The founder owns WHAT; the coder owns HOW.** The founder defines purpose, input, output, constraints, and acceptance. The AI engineers the inside of that boundary. |
+| **5. Features work alone but not together** | Payments work. Crawling works. The database works. The UI works. But the actual customer workflow never connects them correctly. | **Workflows own the handoff.** Explicit inputs/outputs connect bounded functions; dashboards launch workflows rather than reimplementing them. |
+
+Code Stacker does not claim these problems disappear.
+
+It tries to **change the shape of the work** so the AI has fewer opportunities to lose the plot.
+
+> **Do not solve AI context problems with a bigger prompt. Solve them with smaller ownership boundaries and durable handoffs.**
 
 ---
 
@@ -380,6 +406,8 @@ It is a **software architecture and team operating model for AI coding**.
 - [`templates/DESIGN.md`](templates/DESIGN.md) — function implementation map
 - [`templates/INTEGRATION.md`](templates/INTEGRATION.md) — reusable API/MCP/CLI/model integration contract
 - [`templates/pipeline.yaml`](templates/pipeline.yaml) — pipeline manifest
+- [`START-HERE.md`](START-HERE.md) — plain-English guide for founders and pure vibe coders
+- [`skills/`](skills/) — reusable AI coding skills for scoping, building, proving, documenting, integrating, and composing functions
 - [`examples/yello/`](examples/yello/) — real pipeline example
 - [`examples/mixed-stack/`](examples/mixed-stack/) — mixed-runtime example
 
