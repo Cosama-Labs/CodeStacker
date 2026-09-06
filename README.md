@@ -66,7 +66,7 @@ Stripe Engineer     → Stripe integration + payment plumbing
 Auth Engineer       → authentication/session/identity boundary
 API Engineer        → reusable external/internal API integration
 MCP Engineer        → MCP server/tool integration
-Pipeline Engineer   → own pipeline execution, handoffs, retries, pauses, and state
+Pipeline Engineer   → lead the workflow, assign functions/specialists, define requirements/outputs, validate handoffs
 Workflow Engineer   → define user/business workflows using existing functions and pipelines
 UI Engineer         → connect screens/buttons to workflows
 Database Engineer   → schema/migrations/data boundary
@@ -81,6 +81,38 @@ A Function Engineer does not rebuild shared integrations.
 
 Each specialist finishes its own bounded area, documents the handoff, and stops.
 
+### Pipeline Engineer
+
+The **Pipeline Engineer is the team lead for a workflow**.
+
+It looks at the next required capability, directs the correct fresh AI engineer to build it, and gives that engineer:
+
+- the function or specialist boundary it owns;
+- the rules of that boundary;
+- the requirements;
+- allowed integrations/platform capabilities;
+- the expected output;
+- what it must not touch;
+- what proves completion.
+
+Then it accepts the handoff and connects that output to the next function.
+
+```text
+Founder: "After payment, crawl the website."
+
+Pipeline Engineer:
+  "We need 04_crawl."
+        ↓
+  writes FUNCTION.md
+        ↓
+  assigns fresh Function Engineer
+        ↓
+  receives working function + DESIGN.md
+        ↓
+  connects crawl output → review input
+```
+
+The Pipeline Engineer tells the specialist **what must be delivered**. The specialist owns **how to engineer it**.
 ### Function Engineers
 
 In Code Stacker, each fresh AI coding session can act as a **Function Engineer**: one engineer assigned to one bounded business capability.
