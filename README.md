@@ -201,6 +201,52 @@ app/
 
 ---
 
+## The UI follows the same architecture
+
+Code Stacker also maps cleanly to how users actually experience software.
+
+A user does not see a giant backend architecture. They see **sections, actions, and workflows**.
+
+A product surface can be thought of as:
+
+```text
+Dashboard
+├── Create Profile      → starts profile workflow
+├── Verify Business     → starts/resumes verification workflow
+├── Crawl Website       → starts crawl workflow
+├── Review Data         → opens review workflow
+├── Build Package       → starts build workflow
+└── Publish             → starts publish workflow
+```
+
+A dashboard is therefore not another business-logic layer. It is primarily a **workflow launcher and status surface**.
+
+```text
+UI button / link
+      ↓
+workflow / pipeline
+      ↓
+bounded function(s)
+      ↓
+declared output + durable state
+      ↓
+UI renders current result/state
+```
+
+This keeps frontend behavior aligned with backend architecture:
+
+- navigation exposes user-facing capabilities;
+- buttons start, resume, or act on workflows;
+- dashboards show workflow state and outputs;
+- business rules stay in bounded functions;
+- the frontend does not invent a second orchestration system.
+
+Not every internal function needs its own screen or public API. Several functions may compose one user workflow, and one function may have no direct UI at all.
+
+> **The UI exposes capabilities. The pipeline coordinates them. The functions implement them.**
+
+---
+
 ## The production-test rule
 
 > **The test, worker, and pipeline execute the same canonical function.**
