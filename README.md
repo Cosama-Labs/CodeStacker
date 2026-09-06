@@ -54,6 +54,12 @@ It tries to **change the shape of the work** so the AI has fewer opportunities t
 
 ## AI coding should work like a software team
 
+### Function Engineers
+
+In Code Stacker, each fresh AI coding session acts as a **Function Engineer**: one engineer assigned to one bounded business capability.
+
+A Function Engineer is expected to understand its own folder deeply, implement the function, prove the real runtime path, and leave a clean handoff for the next engineer. It is **not** expected to understand or redesign the entire application.
+
 Good engineering teams do not ask every developer to own the entire application.
 
 One engineer may own payments. Another owns crawling. Another owns profile generation. Another owns publishing. They work independently against shared contracts and hand reliable inputs and outputs to the rest of the team.
@@ -65,11 +71,11 @@ Product intent
      ↓
 Pipeline / team spec
      ↓
-Session 01 → 01_profile
-Session 02 → 02_verify
-Session 03 → 03_payment
-Session 04 → 04_crawl
-Session 05 → 05_review
+Function Engineer 01 → 01_profile
+Function Engineer 02 → 02_verify
+Function Engineer 03 → 03_payment
+Function Engineer 04 → 04_crawl
+Function Engineer 05 → 05_review
      ↓
 Integrated application
 ```
@@ -390,7 +396,7 @@ See [Stack and Infrastructure](docs/STACK-AND-INFRASTRUCTURE.md).
 
 Code Stacker is **not** a mega-prompt, agent framework, orchestration library, coding checklist, or replacement for your stack.
 
-It is a **software architecture and team operating model for AI coding**.
+It is a **development approach and team operating model for AI coding** built around small, specialized Function Engineers.
 
 > **The AI does not need to remember your architecture. Your architecture remembers it for the AI.**
 
