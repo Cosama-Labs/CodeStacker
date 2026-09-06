@@ -247,6 +247,73 @@ Not every internal function needs its own screen or public API. Several function
 
 ---
 
+## Organize it like a real product
+
+Code Stacker defines **boundaries**, not one mandatory folder tree.
+
+Functions can be grouped by business domain:
+
+```text
+functions/
+├── email/
+│   ├── send/
+│   ├── read/
+│   ├── search/
+│   └── summarize/
+├── customers/
+│   ├── create/
+│   ├── verify/
+│   └── enrich/
+├── billing/
+│   ├── check_credits/
+│   └── debit_credits/
+└── publishing/
+    ├── build/
+    └── publish/
+```
+
+Shared external connectivity can live separately:
+
+```text
+integrations/
+├── api/
+│   ├── stripe/
+│   ├── google_places/
+│   └── resend/
+├── mcp/
+│   ├── twenty/
+│   └── github/
+├── cli/
+│   └── crawl4ai/
+├── models/
+├── storage/
+└── webhooks/
+```
+
+And user-facing workflows compose those bounded functions:
+
+```text
+workflows/
+├── onboarding/
+├── email_assistant/
+├── publish_business/
+└── billing/
+```
+
+This is intentionally flexible.
+
+A small app may keep functions directly inside one workflow folder. A larger app may organize hundreds of functions by domain and reuse them across many workflows.
+
+The hard rule is not the directory depth.
+
+The hard rule is:
+
+> **Keep business functions bounded, integrations explicit, handoffs documented, and orchestration in workflows.**
+
+See [Project Structure](docs/PROJECT-STRUCTURE.md).
+
+---
+
 ## The production-test rule
 
 > **The test, worker, and pipeline execute the same canonical function.**
