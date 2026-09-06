@@ -1,0 +1,53 @@
+version: "1"
+name: example_pipeline
+
+steps:
+  - id: 01_profile
+    mode: sync
+    on_success: 02_verify
+    on_failure: stop
+
+  - id: 02_verify
+    mode: sync
+    on_success: 03_detect
+    on_failure: stop
+
+  - id: 03_detect
+    mode: sync
+    on_success: 04_payment
+    on_failure: stop
+
+  - id: 04_payment
+    mode: sync
+    on_success: 05_crawl
+    on_failure: stop
+
+  - id: 05_crawl
+    mode: async
+    on_success: 06_review
+    on_failure: stop
+
+  - id: 06_review
+    mode: sync
+    on_success: 07_enhance
+    on_failure: stop
+
+  - id: 07_enhance
+    mode: sync
+    on_success: 08_build
+    on_failure: stop
+
+  - id: 08_build
+    mode: async
+    on_success: 09_edit
+    on_failure: stop
+
+  - id: 09_edit
+    mode: pause_for_user
+    on_success: 10_publish
+    on_failure: stop
+
+  - id: 10_publish
+    mode: async
+    on_success: complete
+    on_failure: stop
