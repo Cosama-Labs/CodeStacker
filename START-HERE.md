@@ -25,7 +25,7 @@ You own the **WHAT**:
 - constraints;
 - acceptance criteria.
 
-The AI coder owns the **HOW**:
+The **Function Engineer** owns the **HOW**:
 
 - implementation structure inside the assigned function;
 - classes/functions;
@@ -146,7 +146,17 @@ Billing function:
 
 ---
 
-## Step 5 — Open one fresh coding session for one function
+## Step 5 — Assign a Function Engineer
+
+A **Function Engineer** is simply a fresh AI coding session assigned to one bounded function.
+
+You are not asking it to be your CTO, architect, frontend engineer, backend engineer, QA department, and DevOps team at the same time.
+
+You are saying:
+
+> **You own this function. Engineer it completely inside this boundary and leave the folder ready for the next engineer.**
+
+Then open one fresh coding session for that function.
 
 Give the coder:
 
