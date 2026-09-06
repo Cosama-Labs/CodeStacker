@@ -54,9 +54,35 @@ It tries to **change the shape of the work** so the AI has fewer opportunities t
 
 ## AI coding should work like a software team
 
+### Assemble specialized AI engineers
+
+Code Stacker treats fresh AI coding sessions like specialists on a real software team.
+
+A session can be assigned a role based on the boundary it owns:
+
+```text
+Function Engineer   → one business function
+Stripe Engineer     → Stripe integration + payment plumbing
+Auth Engineer       → authentication/session/identity boundary
+API Engineer        → reusable external/internal API integration
+MCP Engineer        → MCP server/tool integration
+Workflow Engineer   → compose existing functions into pipelines
+UI Engineer         → connect screens/buttons to workflows
+Database Engineer   → schema/migrations/data boundary
+```
+
+The title is not ceremonial. It defines **scope**.
+
+A Stripe Engineer does not redesign crawling.  
+An Auth Engineer does not rewrite publishing.  
+An MCP Engineer does not invent product workflows.  
+A Function Engineer does not rebuild shared integrations.
+
+Each specialist finishes its own bounded area, documents the handoff, and stops.
+
 ### Function Engineers
 
-In Code Stacker, each fresh AI coding session acts as a **Function Engineer**: one engineer assigned to one bounded business capability.
+In Code Stacker, each fresh AI coding session can act as a **Function Engineer**: one engineer assigned to one bounded business capability.
 
 A Function Engineer is expected to understand its own folder deeply, implement the function, prove the real runtime path, and leave a clean handoff for the next engineer. It is **not** expected to understand or redesign the entire application.
 
@@ -413,7 +439,7 @@ It is a **development approach and team operating model for AI coding** built ar
 - [`templates/INTEGRATION.md`](templates/INTEGRATION.md) — reusable API/MCP/CLI/model integration contract
 - [`templates/pipeline.yaml`](templates/pipeline.yaml) — pipeline manifest
 - [`START-HERE.md`](START-HERE.md) — plain-English guide for founders and pure vibe coders
-- [`skills/`](skills/) — reusable AI coding skills for scoping, building, proving, documenting, integrating, and composing functions
+- [`skills/`](skills/) — reusable AI engineering roles and task skills, including Function, Stripe, Auth, API, and MCP engineers
 - [`examples/yello/`](examples/yello/) — real pipeline example
 - [`examples/mixed-stack/`](examples/mixed-stack/) — mixed-runtime example
 
