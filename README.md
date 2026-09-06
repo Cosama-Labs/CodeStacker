@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/codestacker-layers.svg" width="104" alt="Code Stacker layers icon">
+</p>
+
 # Code Stacker
 
 > **One Function. One Folder. One Session.**
@@ -370,9 +374,11 @@ It is a **software architecture and team operating model for AI coding**.
 
 - [`spec/CODE-STACKER-v0.1.md`](spec/CODE-STACKER-v0.1.md) — full draft standard
 - [`docs/AI-CODING-WORKFLOW.md`](docs/AI-CODING-WORKFLOW.md) — one-function / one-session operating method
+- [`docs/PROJECT-STRUCTURE.md`](docs/PROJECT-STRUCTURE.md) — flexible functions, workflows, integrations, UI, and platform structure
 - [`docs/STACK-AND-INFRASTRUCTURE.md`](docs/STACK-AND-INFRASTRUCTURE.md) — DB, Redis, queues, APIs, MCP, models, storage
 - [`templates/FUNCTION.md`](templates/FUNCTION.md) — function handoff contract
 - [`templates/DESIGN.md`](templates/DESIGN.md) — function implementation map
+- [`templates/INTEGRATION.md`](templates/INTEGRATION.md) — reusable API/MCP/CLI/model integration contract
 - [`templates/pipeline.yaml`](templates/pipeline.yaml) — pipeline manifest
 - [`examples/yello/`](examples/yello/) — real pipeline example
 - [`examples/mixed-stack/`](examples/mixed-stack/) — mixed-runtime example
