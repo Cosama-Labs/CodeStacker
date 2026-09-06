@@ -35,3 +35,19 @@ Use the skill that matches the current job.
 ```
 
 Not every feature needs every skill.
+
+
+## Specialized engineer roles
+
+These role skills scope a fresh coding session to one engineering specialty.
+
+| Role skill | Owns |
+|---|---|
+| [Function Engineer](roles/function-engineer/SKILL.md) | one bounded business function |
+| [Pipeline Engineer](roles/pipeline-engineer/SKILL.md) | execution order, handoffs, retries, pauses, pipeline state |
+| [Stripe Engineer](roles/stripe-engineer/SKILL.md) | Stripe integration plumbing |
+| [Auth Engineer](roles/auth-engineer/SKILL.md) | authentication/session/identity boundary |
+| [API Engineer](roles/api-engineer/SKILL.md) | one reusable API integration |
+| [MCP Engineer](roles/mcp-engineer/SKILL.md) | one reusable MCP integration |
+
+See [AI Engineer Roles](../docs/AI-ENGINEER-ROLES.md).
