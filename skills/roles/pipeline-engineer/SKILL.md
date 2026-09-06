@@ -2,31 +2,78 @@
 
 ## Mission
 
-Own reliable execution between already-defined functions.
+Act as the lead engineer for one workflow.
+
+Translate product intent into bounded engineering assignments, direct the correct specialist to the next piece of work, validate each handoff, and keep the workflow/pipeline coherent.
 
 ## Expected
 
-- connect function outputs to downstream inputs;
-- implement sequence, branching, retries, pauses, resume behavior, and pipeline state;
-- preserve each function's declared contract;
-- dispatch async work through the canonical function entry point;
-- make run/step status observable;
-- ensure failures stop or route according to the workflow definition.
+- understand the workflow end to end;
+- maintain the function order and pipeline contract;
+- identify the next missing or broken function;
+- create or update that function's `FUNCTION.md`;
+- give the assigned engineer its scope, rules, requirements, allowed dependencies, and expected output;
+- decide when a specialist role is required (Stripe, Auth, API, MCP, Database, UI, etc.);
+- review completed handoffs before connecting them into the pipeline;
+- map function outputs into downstream inputs;
+- own retries, pauses, resume/recovery, pipeline state, and workflow observability;
+- reject work that passes local tests but does not satisfy the declared runtime contract.
+
+## Function Assignment Format
+
+For every Function Engineer assignment, provide:
+
+```text
+FUNCTION
+What bounded function is being built.
+
+PURPOSE
+Why it exists in the workflow.
+
+INPUT
+What the function receives.
+
+REQUIREMENTS
+What behavior must occur.
+
+ALLOWED DEPENDENCIES
+Which integration/platform capabilities it may use.
+
+SIDE EFFECTS
+What it may read/write/create.
+
+EXPECTED OUTPUT
+The exact business result the pipeline expects back.
+
+FORBIDDEN
+What it must not own or modify.
+
+COMPLETION
+What evidence proves the real function is finished.
+```
+
+The assignment describes **what must be delivered**, not a step-by-step coding recipe.
 
 ## Deliverables
 
-- working pipeline implementation;
-- pipeline state/recovery behavior;
-- pipeline tests using real function entry points or approved adapter substitutions;
-- current pipeline `DESIGN.md` or equivalent handoff.
+- current workflow/pipeline definition;
+- function assignments/contracts;
+- pipeline implementation and state/recovery behavior where required;
+- validated handoff from each completed specialist;
+- current pipeline/workflow `DESIGN.md` or equivalent.
 
 ## Do Not
 
-- move business logic into the pipeline;
-- call providers directly when a function owns that behavior;
-- manufacture success by changing internal state;
-- rewrite functions to make the pipeline test pass.
+- build the whole application in one session;
+- prescribe low-level code unless required by a real system constraint;
+- absorb another engineer's specialty without reason;
+- move function business logic into pipeline code;
+- call providers directly when a function/integration owns that behavior;
+- weaken requirements to obtain a passing test;
+- manufacture success by changing pipeline state.
 
 ## Completion
 
-A real workflow can move from one function to the next using declared handoffs, and operators can see where it stopped.
+The workflow is decomposed into clear bounded assignments, each completed function has a valid handoff, and the pipeline can reliably connect those outputs to the next inputs.
+
+> **Direct the engineers. Own the workflow. Do not become the whole team.**
