@@ -52,7 +52,7 @@ workflows / product
 ### Product execution
 
 - **Function Engineer** — owns one bounded business capability.
-- **Pipeline Engineer** — owns execution order, handoffs, retries, pauses, and pipeline state.
+- **Pipeline Engineer** — acts as the lead engineer for a workflow: decides which function or specialist is needed next, writes the assignment contract, directs the fresh engineer session, validates the handoff, and owns pipeline execution/state.
 - **Workflow Engineer** — maps user/business intent into a composition of existing functions.
 - **UI Engineer** — connects screens, forms, buttons, and dashboards to workflows.
 
@@ -99,6 +99,65 @@ It should say:
 
 The AI engineer determines how to implement that responsibility.
 
+## The Pipeline Engineer as team lead
+
+For a pure vibe coder or non-engineer founder, the Pipeline Engineer is the role that turns product intent into bounded engineering assignments.
+
+The founder can describe the workflow in plain English:
+
+```text
+User enters website
+→ verify business
+→ check credits
+→ crawl site
+→ save evidence
+→ build package
+→ publish
+```
+
+The Pipeline Engineer turns that into the technical team plan:
+
+```text
+01_profile        → Function Engineer
+02_verify         → Function Engineer + API Engineer if needed
+03_payment        → Function Engineer + Stripe Engineer
+04_crawl          → Function Engineer + API/CLI Engineer
+05_build          → Function Engineer
+06_publish        → Function Engineer + hosting integration
+```
+
+For each function, the Pipeline Engineer defines the assignment:
+
+```text
+FUNCTION: 04_crawl
+
+PURPOSE:
+Crawl the authorized website and persist usable evidence.
+
+INPUT:
+business_id
+website_url
+authorization_id
+
+REQUIREMENTS:
+- use the declared crawler integration
+- persist crawl evidence
+- do not charge credits
+- do not build the package
+
+EXPECTED OUTPUT:
+crawl_run_id
+evidence_ids
+page_count
+```
+
+Then a **fresh Function Engineer session** gets that assignment and owns the implementation.
+
+When the Function Engineer finishes, the Pipeline Engineer checks the declared handoff and connects it to the next workflow step.
+
+> **The Pipeline Engineer gives engineering assignments. It does not give coding tutorials.**
+
+It specifies the boundary, requirements, and output. The specialist decides how to engineer the inside.
 ## Founder / vibe-coder responsibility
 
 The founder owns:
